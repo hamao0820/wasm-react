@@ -3,6 +3,7 @@
 package main
 
 import (
+	"errors"
 	"syscall/js"
 )
 
@@ -57,7 +58,7 @@ func div(this js.Value, args []js.Value) interface{} {
 	if v2 == 0 {
 		return js.ValueOf(map[string]interface{}{
 			"quot":  0,
-			"error": "Divide by zero",
+			"error": errors.New("Divide by zero").Error(),
 		})
 	}
 	return js.ValueOf(map[string]interface{}{
