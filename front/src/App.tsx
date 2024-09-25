@@ -1,18 +1,16 @@
-import useHello from "./hooks/useHello/useHello";
+import Add from "./components/Add";
+import AddAndSub from "./components/AddAndSub";
+import Div from "./components/Div";
+import Hello from "./components/Hello";
 
 function App() {
-  const hello = useHello();
-  console.log(hello);
-  hello.then((h) => {
-    console.log(h.Hello());
-    console.log(h.Add(1, 2));
-    console.log(h.AddAndSub(1, 2));
-    console.log(h.Div(1, 2));
-    console.log(h.Div(1, 0));
-  });
   return (
     <>
       <h1>WASM(Go) + React</h1>
+      <Hello />
+      <Add />
+      <AddAndSub />
+      <Div />
     </>
   );
 }
