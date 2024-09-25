@@ -39,7 +39,10 @@ func add(this js.Value, args []js.Value) interface{} {
 func addAndSub(this js.Value, args []js.Value) interface{} {
 	v1 := args[0].Int()
 	v2 := args[1].Int()
-	return js.ValueOf([]interface{}{v1 + v2, v1 - v2})
+	return js.ValueOf(map[string]interface{}{
+		"sum":  v1 + v2,
+		"diff": v1 - v2,
+	})
 }
 
 //	func div(v1, v2 int) (int, error) {
@@ -52,7 +55,13 @@ func div(this js.Value, args []js.Value) interface{} {
 	v1 := args[0].Int()
 	v2 := args[1].Int()
 	if v2 == 0 {
-		return js.ValueOf([]interface{}{0, "Divide by zero"})
+		return js.ValueOf(map[string]interface{}{
+			"quot":  0,
+			"error": "Divide by zero",
+		})
 	}
-	return js.ValueOf([]interface{}{v1 / v2, nil})
+	return js.ValueOf(map[string]interface{}{
+		"quot":  v1 / v2,
+		"error": nil,
+	})
 }
