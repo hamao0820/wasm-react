@@ -11,6 +11,7 @@ func main() {
 	c := make(chan struct{}, 0)
 
 	js.Global().Set("hello", js.FuncOf(hello))
+	js.Global().Set("nums", js.FuncOf(nums))
 	js.Global().Set("add", js.FuncOf(add))
 	js.Global().Set("addAndSub", js.FuncOf(addAndSub))
 	js.Global().Set("div", js.FuncOf(div))
@@ -23,6 +24,13 @@ func main() {
 //	}
 func hello(this js.Value, args []js.Value) interface{} {
 	return js.ValueOf("Hello, WebAssembly!")
+}
+
+//	func nums() []int {
+//		return []int{1, 2, 3, 4, 5}
+//	}
+func nums(this js.Value, args []js.Value) interface{} {
+	return js.ValueOf([]interface{}{1, 2, 3, 4, 5})
 }
 
 //	func add(v1, v2 int) int {
