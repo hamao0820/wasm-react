@@ -3,7 +3,7 @@
 ## How to run
 
 ```sh
-cd front
+cd frontend
 ```
 
 ```sh
